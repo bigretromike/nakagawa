@@ -15,7 +15,8 @@ setup(name='nakagawa',
           'sqlalchemy>=1.1.9',
           'wallabag_api>=1.1.0',
           'BASC-py4chan>=0.6.3',
-          'logging>=0.4.9.6'
+          'logging>=0.4.9.6',
+          'requests>=2.5.0'
       ],
       license='MIT'
       )

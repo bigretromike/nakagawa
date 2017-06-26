@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='nakagawa',
-      version="0.3",
+      version="0.4",
       description='Nakagawa - central river',
       author='bigretromike',
       url='https://github.com/bigretromike/nakagawa/',
@@ -15,8 +15,7 @@ setup(name='nakagawa',
           'sqlalchemy>=1.1.9',
           'wallabag_api>=1.1.0',
           'BASC-py4chan>=0.6.3',
-          'logging>=0.4.9.6',
-          'requests>=2.5.0'
+          'logging>=0.4.9.6'
       ],
       license='MIT'
       )

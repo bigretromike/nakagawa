@@ -73,14 +73,17 @@ class Nakagawa:
 
         data = wall.get_entries(**params)
         for post in data['_embedded']['items']:
-            if 'boards.4chan.org' in post['domain_name']:
-                if not db.session.query(exists().where(db.UrlsTable.url == unicode(post['url']))).scalar():
-                    self.logger.info("adding {}".format(post['url']))
-                    u = db.UrlsTable()
-                    u.url = unicode(post['url'])
-                    db.session.add(u)
-                    db.session.commit()
-                    wall.delete_entries(post['id'])
+            if 'domain_name' in post:
+                if 'boards.4chan.org' in post['domain_name']:
+                    if not db.session.query(exists().where(db.UrlsTable.url == unicode(post['url']))).scalar():
+                        self.logger.info("adding {}".format(post['url']))
+                        u = db.UrlsTable()
+                        u.url = unicode(post['url'])
+                        db.session.add(u)
+                        db.session.commit()
+                        wall.delete_entries(post['id'])
+            else:
+                self.logger.warning("no domain_name in {}".format(post['url']))
 
     def check_4chan(self):
         known_urls = db.session.query(db.UrlsTable).all()

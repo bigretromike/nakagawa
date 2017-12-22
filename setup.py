@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='nakagawa',
-      version="0.4",
+      version="0.5",
       description='Nakagawa - central river',
       author='bigretromike',
       url='https://github.com/bigretromike/nakagawa/',
